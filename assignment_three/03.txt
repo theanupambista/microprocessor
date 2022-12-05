@@ -1,0 +1,21 @@
+;selected memory for loading value
+LXI H,0050H
+;selected memory for storing value
+LXI D,005AH
+;initializing a to remove garbage value
+MVI A,00H
+;counter for carry
+MVI B,00H
+;counter for loop
+MVI C,0AH
+SUM: ADD M
+JNC DOWN
+INR B
+DOWN: INX H
+DCR C
+JNZ SUM
+STAX D
+MOV A,B
+INX D
+STAX D
+hlt
